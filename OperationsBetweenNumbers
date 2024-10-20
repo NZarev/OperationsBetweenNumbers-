@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class OperationsBetweenNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n1 = scanner.nextInt();
+        int n2 = scanner.nextInt();
+        char operator = scanner.next().charAt(0);
+
+        switch (operator) {
+            case '+':
+                int sum = n1 + n2;
+                System.out.println(n1 + " + " + n2 + " = " + sum + " – " + (sum % 2 == 0 ? "even" : "odd"));
+                break;
+            case '-':
+                int difference = n1 - n2;
+                System.out.println(n1 + " - " + n2 + " = " + difference + " – " + (difference % 2 == 0 ? "even" : "odd"));
+                break;
+            case '*':
+                int product = n1 * n2;
+                System.out.println(n1 + " * " + n2 + " = " + product + " – " + (product % 2 == 0 ? "even" : "odd"));
+                break;
+            case '/':
+                if (n2 == 0) {
+                    System.out.println("Cannot divide " + n1 + " by zero");
+                } else {
+                    double division = (double) n1 / n2;
+                    System.out.printf("%d / %d = %.2f%n", n1, n2, division);
+                }
+                break;
+            case '%':
+                if (n2 == 0) {
+                    System.out.println("Cannot divide " + n1 + " by zero");
+                } else {
+                    int modulus = n1 % n2;
+                    System.out.println(n1 + " % " + n2 + " = " + modulus);
+                }
+                break;
+            default:
+                System.out.println("Invalid operator");
+                break;
+        }
+
+        scanner.close();
+    }
+}
